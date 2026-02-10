@@ -1,9 +1,11 @@
-/* Mejoras visuales para hidrosfera y biosfera */
+/* Mejoras visuales para todos los sistemas (biosfera, hidrosfera, geosfera, atmosfera) */
 .hotspot { transition: transform .18s ease, filter .18s ease, opacity .18s ease; cursor: pointer; }
 .hotspot:hover, .hotspot:focus { transform: translateY(-4px) scale(1.03); }
-.hotspot.biosfera polygon, .hotspot.hidrosfera polygon { transition: fill .18s ease, stroke .18s ease, opacity .18s ease; shape-rendering: geometricPrecision; }
+.hotspot.biosfera polygon, .hotspot.hidrosfera polygon, .hotspot.geosfera polygon, .hotspot.atmosfera path { transition: fill .18s ease, stroke .18s ease, opacity .18s ease; shape-rendering: geometricPrecision; }
 .hotspot.hidrosfera polygon { filter: drop-shadow(0 6px 8px rgba(0,30,60,0.2)); }
 .hotspot.biosfera polygon { filter: drop-shadow(0 6px 8px rgba(10,50,20,0.18)); }
+.hotspot.geosfera polygon { filter: drop-shadow(0 6px 8px rgba(100,70,0,0.18)); }
+.hotspot.atmosfera path { filter: drop-shadow(0 6px 8px rgba(0,50,100,0.18)); }
 .hotspot text { pointer-events: none; font-family: inherit; }
 
 /* Aumentar contraste del texto del label en tamaños pequeños */
