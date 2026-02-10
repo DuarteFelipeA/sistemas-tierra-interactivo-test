@@ -1,0 +1,37 @@
+[
+  {
+    "type": "multiple",
+    "titulo": "Capas de la atmósfera",
+    "descripcion": "¿En qué capa se encuentra la mayor parte del clima?",
+    "pregunta": "La mayor parte de los fenómenos meteorológicos ocurren en...",
+    "opciones": [
+      {
+        "texto": "Estratosfera",
+        "correcta": false
+      },
+      {
+        "texto": "Mesosfera",
+        "correcta": false
+      },
+      {
+        "texto": "Troposfera",
+        "correcta": true
+      },
+      {
+        "texto": "Termosfera",
+        "correcta": false
+      }
+    ]
+  },
+  {
+    "type": "truefalse",
+    "titulo": "Ozono",
+    "afirmacion": "La capa de ozono se encuentra principalmente en la estratosfera.",
+    "correcta": true
+  },
+  {
+    "type": "cloze",
+    "titulo": "Balance energético",
+    "texto": "La atmósfera regula la {{temperatura|temp}} terrestre mediante el {{efecto invernadero|efecto de invernadero}}."
+  }
+]

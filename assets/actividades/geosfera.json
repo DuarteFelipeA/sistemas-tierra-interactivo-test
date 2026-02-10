@@ -1,0 +1,62 @@
+[
+  {
+    "type": "bank",
+    "titulo": "Cuestionario Geosfera",
+    "n": 3,
+    "items": [
+      {
+        "type": "multiple",
+        "titulo": "Tectónica de placas",
+        "pregunta": "¿Qué proceso forma montañas en límites convergentes?",
+        "opciones": [
+          {
+            "texto": "Subducción y compresión",
+            "correcta": true
+          },
+          {
+            "texto": "Expansión del fondo oceánico",
+            "correcta": false
+          },
+          {
+            "texto": "Deriva continental por vientos",
+            "correcta": false
+          }
+        ]
+      },
+      {
+        "type": "truefalse",
+        "titulo": "Núcleo",
+        "afirmacion": "El núcleo interno es sólido.",
+        "correcta": true
+      },
+      {
+        "type": "order",
+        "titulo": "Capas de la Tierra",
+        "pasos": [
+          "Corteza",
+          "Manto",
+          "Núcleo externo",
+          "Núcleo interno"
+        ]
+      },
+      {
+        "type": "match",
+        "titulo": "Rocas",
+        "pares": [
+          {
+            "a": "Ígnea",
+            "b": "Solidifica desde magma"
+          },
+          {
+            "a": "Sedimentaria",
+            "b": "Compactación de sedimentos"
+          },
+          {
+            "a": "Metamórfica",
+            "b": "Transformación por presión/temperatura"
+          }
+        ]
+      }
+    ]
+  }
+]

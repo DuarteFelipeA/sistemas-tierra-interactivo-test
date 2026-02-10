@@ -1,0 +1,26 @@
+[
+  {
+    "type": "cloze",
+    "titulo": "Flujo de energía",
+    "texto": "La energía fluye desde los {{productores|autótrofos}} hacia los {{consumidores}} y finalmente a los {{descomponedores|desintegradores}}."
+  },
+  {
+    "type": "multiple",
+    "titulo": "Biomas",
+    "pregunta": "¿Cuál de estos es un bioma frío con permafrost?",
+    "opciones": [
+      {
+        "texto": "Sabana",
+        "correcta": false
+      },
+      {
+        "texto": "Tundra",
+        "correcta": true
+      },
+      {
+        "texto": "Selva tropical",
+        "correcta": false
+      }
+    ]
+  }
+]
