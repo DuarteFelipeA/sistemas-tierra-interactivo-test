@@ -318,3 +318,49 @@ qsa('.tab').forEach(tab => {
 });
 
 document.querySelector('#year').textContent = new Date().getFullYear();
+
+// --- Tooltip y animación de revelado del SVG ---
+const tooltipEl = qs('#svgTooltip');
+const svgWrap = qs('.svg-wrapper');
+
+function setTooltipPosition(x, y){
+  // mantener dentro del contenedor
+  const r = svgWrap.getBoundingClientRect();
+  const pad = 8;
+  let left = Math.min(Math.max(x, pad), r.width - pad);
+  let top = Math.min(Math.max(y, pad), r.height - pad);
+  tooltipEl.style.left = left + 'px';
+  tooltipEl.style.top = top + 'px';
+}
+
+function showTooltipFor(h, evt){
+  if(!tooltipEl) return;
+  const name = h.getAttribute('data-name') || h.getAttribute('data-system') || '';
+  tooltipEl.textContent = name;
+  tooltipEl.setAttribute('aria-hidden','false');
+  if(evt && evt.clientX){
+    const rect = svgWrap.getBoundingClientRect();
+    setTooltipPosition(evt.clientX - rect.left, evt.clientY - rect.top - 12);
+  } else {
+    // fallback: center of element
+    const elRect = h.getBoundingClientRect();
+    const rect = svgWrap.getBoundingClientRect();
+    setTooltipPosition((elRect.left + elRect.right)/2 - rect.left, elRect.top - rect.top - 12);
+  }
+}
+
+function hideTooltip(){ if(!tooltipEl) return; tooltipEl.setAttribute('aria-hidden','true'); }
+
+qsa('.hotspot').forEach(h => {
+  h.addEventListener('mouseenter', (e) => showTooltipFor(h, e));
+  h.addEventListener('mousemove', (e) => showTooltipFor(h, e));
+  h.addEventListener('mouseleave', hideTooltip);
+  h.addEventListener('focus', (e) => showTooltipFor(h));
+  h.addEventListener('blur', hideTooltip);
+});
+
+// Animación de entrada: quitar clase preload tras carga
+window.addEventListener('load', ()=>{
+  const svg = qs('.earth-svg');
+  if(svg) setTimeout(()=> svg.classList.remove('preload'), 90);
+});
