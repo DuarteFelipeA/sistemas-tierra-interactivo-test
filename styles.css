@@ -12,3 +12,12 @@
 .svg-tooltip{position:absolute;pointer-events:none;background:linear-gradient(180deg,#031229,#072748);color:#e6f1ff;padding:.45rem .6rem;border-radius:8px;font-size:.9rem;border:1px solid rgba(120,160,220,0.12);box-shadow:0 8px 20px rgba(2,10,25,0.6);transform:translate(-50%,-120%);white-space:nowrap;z-index:1200;display:none}
 .svg-tooltip[aria-hidden="false"]{display:block}
 .svg-wrapper{position:relative}
+
+/* --- Overrides: agrandar bloques para sistemas --- */
+/* Aumenta el ancho máximo del bloque SVG (anula el valor anterior) */
+.svg-wrapper{max-width:1200px}
+/* Permite más espacio en la sección docente */
+.teacher{max-width:1300px;padding:1.25rem}
+/* Ventana modal más ancha y alta para mostrar sistemas y actividades */
+.modal-content{width:min(1200px,98vw);max-height:95vh;padding:1.25rem;box-shadow:0 30px 100px rgba(0,0,0,.6)}
+
