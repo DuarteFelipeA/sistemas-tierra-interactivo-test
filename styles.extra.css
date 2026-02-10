@@ -12,4 +12,4 @@
 .hotspot text { font-size: 13px; }
 
 /* Ajustes responsivos ligeros */
-@media (max-width:600px){ .modal-content{padding:.6rem} .modal-header img{width:100px;height:100px} }
+@media (max-width:600px){ .modal-content{padding:.6rem} .modal-header img{width:100px;height:100px;padding:6px} }
