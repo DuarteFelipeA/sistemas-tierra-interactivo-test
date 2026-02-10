@@ -269,7 +269,7 @@ function openModalFor(systemId){
     <div class="modal-tabs" role="tablist">
       <button role="tab" class="modal-tab active" aria-selected="true" data-panel="info">Información</button>
       <button role="tab" class="modal-tab" aria-selected="false" data-panel="actividades">Actividades</button>
-      <a class="btn" target="_blank" rel="noopener" href="${sys.pdfEstudiante}">PDF del sistema ↗</a>
+      <a class="btn" target="_blank" rel="noopener" href="${sys.pdfEstudiante}">PDF ↗</a>
     </div>
 
     <section id="panel-info" class="modal-panel active" role="tabpanel" aria-label="Información">
