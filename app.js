@@ -281,7 +281,7 @@ qs('.modal-backdrop').addEventListener('click', closeModal);
 modalCloseBtn.addEventListener('click', closeModal);
 document.addEventListener('keydown', (e)=>{ if(e.key==='Escape' && modalEl.getAttribute('aria-hidden')==='false'){ closeModal(); }});
 
-// Hotspots (ya sea círculos o polígonos del cono)
+// Hotspots (polígonos/path del cono)
 qsa('.hotspot').forEach(h => {
   h.addEventListener('click', () => openModalFor(h.getAttribute('data-system')));
   h.addEventListener('keydown', (e) => { if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); openModalFor(h.getAttribute('data-system')); }});

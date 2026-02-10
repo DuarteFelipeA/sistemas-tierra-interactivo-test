@@ -68,9 +68,10 @@
             <text x="400" y="237" text-anchor="middle" fill="#003c6c" font-weight="700">Hidrosfera</text>
           </g>
 
-          <!-- ATMÓSFERA -->
+          <!-- ATMÓSFERA (redondeada con arco) -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Atmósfera" data-system="atmosfera">
-            <polygon points="300.00,40 500.00,40 440.00,232 360.00,232" fill="url(#grad-atmo)" opacity="0.90" stroke="#1565c0" stroke-width="1.5"></polygon>
+            <path d="M 300,40 A 130,60 0 0 1 500,40 L 440,232 L 360,232 Z"
+                  fill="url(#grad-atmo)" opacity="0.90" stroke="#1565c0" stroke-width="1.5"></path>
             <text x="400" y="120" text-anchor="middle" fill="#003c6c" font-weight="700">Atmósfera</text>
           </g>
 
