@@ -1,3 +1,6 @@
-# Sistemas de la Tierra – Interactivo (fix modal)
+# Sin leyenda en el SVG
 
-Corrección aplicada: z-index de modal y prevención de cierre por clics dentro del contenido.
+Esta variante elimina el texto "Haz clic en un segmento del cono" del SVG y mantiene:
+- Atmósfera con tope redondeado.
+- Hidrosfera/Biosfera con relleno sólido y bordes nítidos (sin stroke).
+- Actividades por JSON + intento único.

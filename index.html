@@ -14,38 +14,64 @@
   </header>
 
   <main>
-    <section class="hero" aria-labelledby="titulo-interactivo">
+    <!-- Imagen/SVG interactivo en forma de cono segmentado -->
+    <section class="hero" aria-labelledby="titulo-interactivo" id="home">
       <h2 id="titulo-interactivo" class="sr-only">Mapa interactivo de los sistemas de la Tierra</h2>
-      <div class="svg-wrapper" role="img" aria-label="Ilustración interactiva de los sistemas de la Tierra">
-        <svg viewBox="0 0 800 400" class="earth-svg" aria-hidden="false">
+      <div class="svg-wrapper" role="img" aria-label="Ilustración interactiva de sistemas en un cono desde el centro de la Tierra al espacio">
+        <svg viewBox="0 0 800 420" class="earth-svg" aria-hidden="false">
           <defs>
+            <!-- Fondo -->
             <radialGradient id="bg" cx="50%" cy="50%" r="70%">
-              <stop offset="0%" stop-color="#0d47a1"/>
+              <stop offset="0%"  stop-color="#0d47a1"/>
               <stop offset="100%" stop-color="#001e3c"/>
             </radialGradient>
+            <!-- Gradientes para Geosfera y Atmósfera -->
+            <linearGradient id="grad-geo" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#ffb300"/>
+              <stop offset="100%" stop-color="#ffca28"/>
+            </linearGradient>
+            <linearGradient id="grad-atmo" x1="0" y1="1" x2="0" y2="0">
+              <stop offset="0%"  stop-color="#4fc3f7"/>
+              <stop offset="100%" stop-color="#81d4fa"/>
+            </linearGradient>
           </defs>
-          <rect x="0" y="0" width="800" height="400" fill="url(#bg)"/>
-          <text x="400" y="45" text-anchor="middle" fill="#e3f2fd" font-size="22" aria-hidden="true">Haz clic en un sistema</text>
-          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Atmósfera" data-system="atmosfera">
-            <circle cx="170" cy="180" r="80" fill="#4FC3F7" opacity="0.9" />
-            <text x="170" y="185" text-anchor="middle" fill="#002b36" font-size="16" font-weight="700">Atmósfera</text>
-          </g>
-          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Hidrosfera" data-system="hidrosfera">
-            <circle cx="400" cy="180" r="80" fill="#29B6F6" opacity="0.9" />
-            <text x="400" y="185" text-anchor="middle" fill="#002b36" font-size="16" font-weight="700">Hidrosfera</text>
-          </g>
+          <rect x="0" y="0" width="800" height="420" fill="url(#bg)"></rect>
+
+          <!-- Geometría de referencia del cono -->
+          <!-- Límites Y (ajustables): yTop=40, yH2O=232, yBio=240, yGeo=255, yApex=360 -->
+          <!-- Funciones laterales (para 800x420): xL(y)=300+0.3125*(y-40), xR(y)=500-0.3125*(y-40) -->
+
+          <!-- GEOSFERA -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Geosfera" data-system="geosfera">
-            <circle cx="630" cy="180" r="80" fill="#FFCA28" opacity="0.9" />
-            <text x="630" y="185" text-anchor="middle" fill="#3e2723" font-size="16" font-weight="700">Geosfera</text>
+            <polygon points="367,255 400,360 433,255" fill="url(#grad-geo)" opacity="1" stroke="#6d4c41" stroke-width="1.5"></polygon>
+            <text x="400" y="300" text-anchor="middle" fill="#3e2723" font-weight="700">Geosfera</text>
           </g>
+
+          <!-- BIOSFERA (relleno sólido, sin stroke, bordes nítidos) -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Biosfera" data-system="biosfera">
-            <circle cx="400" cy="320" r="60" fill="#66BB6A" opacity="0.95" />
-            <text x="400" y="325" text-anchor="middle" fill="#1b5e20" font-size="16" font-weight="700">Biosfera</text>
+            <polygon shape-rendering="crispEdges" points="362,240 367,255 433,255 438,240" fill="#66bb6a" opacity="1" stroke="none"></polygon>
+            <text x="400" y="248" text-anchor="middle" fill="#1b5e20" font-weight="700">Biosfera</text>
           </g>
+
+          <!-- HIDROSFERA (relleno sólido, sin stroke, bordes nítidos) -->
+          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Hidrosfera" data-system="hidrosfera">
+            <polygon shape-rendering="crispEdges" points="360,232 362,240 438,240 440,232" fill="#29b6f6" opacity="1" stroke="none"></polygon>
+            <text x="400" y="237" text-anchor="middle" fill="#003c6c" font-weight="700">Hidrosfera</text>
+          </g>
+
+          <!-- ATMÓSFERA (redondeada con arco) -->
+          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Atmósfera" data-system="atmosfera">
+            <path d="M 300,40 A 130,60 0 0 1 500,40 L 440,232 L 360,232 Z" fill="url(#grad-atmo)" opacity="0.90" stroke="#1565c0" stroke-width="1.5"></path>
+            <text x="400" y="120" text-anchor="middle" fill="#003c6c" font-weight="700">Atmósfera</text>
+          </g>
+
+          <!-- Contorno del cono completo -->
+          <polyline points="300,40 400,360 500,40" fill="none" stroke="rgba(255,255,255,.3)" stroke-width="1.2"></polyline>
         </svg>
       </div>
     </section>
 
+    <!-- Modal dinámico -->
     <div id="systemModal" class="modal" aria-hidden="true" aria-labelledby="modalTitle" role="dialog">
       <div class="modal-content" role="document">
         <button class="modal-close" aria-label="Cerrar">×</button>
@@ -54,7 +80,8 @@
       <div class="modal-backdrop"></div>
     </div>
 
-    <section class="teacher" aria-labelledby="titulo-docente">
+    <!-- Material docente -->
+    <section class="teacher" aria-labelledby="titulo-docente" id="docente">
       <h2 id="titulo-docente">Material para el docente</h2>
       <p>Visualiza o descarga guías y material de apoyo para cada sistema.</p>
 
@@ -67,37 +94,26 @@
 
       <div class="tab-panels">
         <div id="pdf-atmosfera" class="tab-panel active" role="tabpanel">
-          <div class="pdf-box">
-            <iframe title="PDF Atmósfera" src="assets/atmosfera.pdf#view=FitH"></iframe>
-          </div>
+          <div class="pdf-box"><iframe title="PDF Atmósfera" src="assets/atmosfera.pdf#view=FitH"></iframe></div>
           <a class="btn" href="assets/atmosfera.pdf" download>Descargar PDF de Atmósfera</a>
         </div>
         <div id="pdf-hidrosfera" class="tab-panel" role="tabpanel">
-          <div class="pdf-box">
-            <iframe title="PDF Hidrosfera" src="assets/hidrosfera.pdf#view=FitH"></iframe>
-          </div>
+          <div class="pdf-box"><iframe title="PDF Hidrosfera" src="assets/hidrosfera.pdf#view=FitH"></iframe></div>
           <a class="btn" href="assets/hidrosfera.pdf" download>Descargar PDF de Hidrosfera</a>
         </div>
         <div id="pdf-geosfera" class="tab-panel" role="tabpanel">
-          <div class="pdf-box">
-            <iframe title="PDF Geosfera" src="assets/geosfera.pdf#view=FitH"></iframe>
-          </div>
+          <div class="pdf-box"><iframe title="PDF Geosfera" src="assets/geosfera.pdf#view=FitH"></iframe></div>
           <a class="btn" href="assets/geosfera.pdf" download>Descargar PDF de Geosfera</a>
         </div>
         <div id="pdf-biosfera" class="tab-panel" role="tabpanel">
-          <div class="pdf-box">
-            <iframe title="PDF Biosfera" src="assets/biosfera.pdf#view=FitH"></iframe>
-          </div>
+          <div class="pdf-box"><iframe title="PDF Biosfera" src="assets/biosfera.pdf#view=FitH"></iframe></div>
           <a class="btn" href="assets/biosfera.pdf" download>Descargar PDF de Biosfera</a>
         </div>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <small>© <span id="year"></span> Proyecto educativo • Sistemas de la Tierra</small>
-  </footer>
-
+  <footer class="site-footer"><small>© <span id="year"></span> Proyecto educativo • Sistemas de la Tierra</small></footer>
   <script src="app.js"></script>
 </body>
 </html>
