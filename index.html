@@ -6,6 +6,7 @@
   <title>Sistemas de la Tierra – Interactivo</title>
   <meta name="description" content="Imagen interactiva de los sistemas de la Tierra con material para el docente y actividades por sistema." />
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.extra.css" />
 </head>
 <body>
   <header class="site-header">
@@ -34,6 +35,23 @@
               <stop offset="0%"  stop-color="#4fc3f7"/>
               <stop offset="100%" stop-color="#81d4fa"/>
             </linearGradient>
+            <!-- Gradientes y patrones para Hidrosfera y Biosfera -->
+            <linearGradient id="grad-hidro" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#29b6f6"/>
+              <stop offset="100%" stop-color="#0277bd"/>
+            </linearGradient>
+            <linearGradient id="grad-bio" x1="0" y1="0" x2="1" y2="1">
+              <stop offset="0%" stop-color="#66bb6a"/>
+              <stop offset="100%" stop-color="#2e7d32"/>
+            </linearGradient>
+            <!-- Patrón de olas (sutil) -->
+            <pattern id="pattern-waves" patternUnits="userSpaceOnUse" width="24" height="12">
+              <path d="M0 6 Q6 0 12 6 T24 6" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+            </pattern>
+            <!-- Filtro de sombra suave -->
+            <filter id="soft-shadow" x="-50%" y="-50%" width="200%" height="200%">
+              <feDropShadow dx="0" dy="6" stdDeviation="6" flood-color="#000" flood-opacity="0.35" />
+            </filter>
           </defs>
           <rect x="0" y="0" width="800" height="420" fill="url(#bg)"></rect>
 
@@ -47,16 +65,18 @@
             <text x="400" y="300" text-anchor="middle" fill="#3e2723" font-weight="700">Geosfera</text>
           </g>
 
-          <!-- BIOSFERA (relleno sólido, sin stroke, bordes nítidos) -->
-          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Biosfera" data-system="biosfera">
-            <polygon shape-rendering="crispEdges" points="362,240 367,255 433,255 438,240" fill="#66bb6a" opacity="1" stroke="none"></polygon>
-            <text x="400" y="248" text-anchor="middle" fill="#1b5e20" font-weight="700">Biosfera</text>
+          <!-- BIOSFERA: degradado + ligero borde y sombra -->
+          <g class="hotspot biosfera" tabindex="0" role="button" aria-label="Abrir Biosfera" data-system="biosfera" filter="url(#soft-shadow)">
+            <polygon points="362,240 367,255 433,255 438,240" fill="url(#grad-bio)" opacity="1" stroke="#1b5e20" stroke-width="1.6" rx="2"/>
+            <polygon points="362,240 367,255 433,255 438,240" fill="url(#pattern-waves)" opacity="0.06"/>
+            <text x="400" y="248" text-anchor="middle" fill="#062e14" font-weight="800">Biosfera</text>
           </g>
 
-          <!-- HIDROSFERA (relleno sólido, sin stroke, bordes nítidos) -->
-          <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Hidrosfera" data-system="hidrosfera">
-            <polygon shape-rendering="crispEdges" points="360,232 362,240 438,240 440,232" fill="#29b6f6" opacity="1" stroke="none"></polygon>
-            <text x="400" y="237" text-anchor="middle" fill="#003c6c" font-weight="700">Hidrosfera</text>
+          <!-- HIDROSFERA: degradado + patrón de olas y borde contrastado -->
+          <g class="hotspot hidrosfera" tabindex="0" role="button" aria-label="Abrir Hidrosfera" data-system="hidrosfera" filter="url(#soft-shadow)">
+            <polygon points="360,232 362,240 438,240 440,232" fill="url(#grad-hidro)" opacity="1" stroke="#003c6c" stroke-width="1.6"/>
+            <polygon points="360,232 362,240 438,240 440,232" fill="url(#pattern-waves)" opacity="0.12"/>
+            <text x="400" y="237" text-anchor="middle" fill="#001e3b" font-weight="800">Hidrosfera</text>
           </g>
 
           <!-- ATMÓSFERA (redondeada con arco) -->
