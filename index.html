@@ -30,8 +30,10 @@
             </radialGradient>
             <!-- Gradientes para Geosfera y Atmósfera -->
             <linearGradient id="grad-geo" x1="0" y1="1" x2="0" y2="0">
-              <stop offset="0%"  stop-color="#ffb300"/>
-              <stop offset="100%" stop-color="#ffca28"/>
+              <stop offset="0%"  stop-color="#8b6f47"/>
+              <stop offset="40%" stop-color="#b8956a"/>
+              <stop offset="70%" stop-color="#d4a853"/>
+              <stop offset="100%" stop-color="#e8b86d"/>
             </linearGradient>
             <linearGradient id="grad-atmo" x1="0" y1="1" x2="0" y2="0">
               <stop offset="0%"  stop-color="#4fc3f7"/>
@@ -49,6 +51,15 @@
             <!-- Patrón de olas (sutil) -->
             <pattern id="pattern-waves" patternUnits="userSpaceOnUse" width="24" height="12">
               <path d="M0 6 Q6 0 12 6 T24 6" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1" />
+            </pattern>
+            <!-- Patrón de textura de roca para geosfera -->
+            <pattern id="pattern-rocks" patternUnits="userSpaceOnUse" width="40" height="40">
+              <circle cx="10" cy="10" r="2.5" fill="#6b5637" opacity="0.3"/>
+              <circle cx="28" cy="15" r="2" fill="#8b7355" opacity="0.25"/>
+              <circle cx="18" cy="32" r="2.2" fill="#6b5637" opacity="0.28"/>
+              <circle cx="35" cy="28" r="1.8" fill="#7a6a47" opacity="0.22"/>
+              <circle cx="5" cy="25" r="1.5" fill="#8b7355" opacity="0.2"/>
+              <path d="M5 20 L15 18 M12 8 L20 10 M30 35 L38 33" stroke="#6b5637" stroke-width="0.8" stroke-opacity="0.15" fill="none"/>
             </pattern>
             <!-- Filtro de sombra suave -->
             <filter id="soft-shadow" x="-50%" y="-50%" width="200%" height="200%">
@@ -68,6 +79,7 @@
           <!-- GEOSFERA -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Geosfera" data-system="geosfera" data-name="Geosfera" data-order="3">
             <polygon points="371.875,270 400,360 428.125,270" fill="url(#grad-geo)" opacity="1" stroke="#d4a840" stroke-width="0.8" stroke-linejoin="miter"></polygon>
+            <polygon points="371.875,270 400,360 428.125,270" fill="url(#pattern-rocks)" opacity="0.35" stroke="none"></polygon>
             <text x="400" y="300" text-anchor="middle" fill="#3e2723" font-weight="700">Geosfera</text>
             <!-- icon removed -->
           </g>
