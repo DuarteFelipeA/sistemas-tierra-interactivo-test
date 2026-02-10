@@ -58,8 +58,8 @@
           </defs>
           <rect x="0" y="0" width="800" height="420" fill="url(#bg)"></rect>
 
-          <!-- Contorno del cono completo (fondo, detrás de los sistemas) -->
-          <polyline points="300,40 400,360 500,40" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1.2"></polyline>
+          <!-- Contorno del cono completo (oculto) -->
+          <polyline points="300,40 400,360 500,40" fill="none" stroke="rgba(255,255,255,0)" stroke-width="1.2"></polyline>
 
           <!-- Geometría de referencia del cono -->
           <!-- Límites Y (ajustables): yTop=40, yH2O=215, yBio=240, yGeo=270, yApex=360 -->
@@ -67,30 +67,30 @@
 
           <!-- GEOSFERA -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Geosfera" data-system="geosfera" data-name="Geosfera" data-order="3">
-            <polygon points="372.1,270 400,360 427.9,270" fill="url(#grad-geo)" opacity="1" stroke="#d4a840" stroke-width="0.8"></polygon>
+            <polygon points="371.875,270 400,360 428.125,270" fill="url(#grad-geo)" opacity="1" stroke="#d4a840" stroke-width="0.8" stroke-linejoin="miter"></polygon>
             <text x="400" y="300" text-anchor="middle" fill="#3e2723" font-weight="700">Geosfera</text>
             <!-- icon removed -->
           </g>
 
           <!-- BIOSFERA: degradado + ligero borde y sombra -->
           <g class="hotspot biosfera" tabindex="0" role="button" aria-label="Abrir Biosfera" data-system="biosfera" data-name="Biosfera" data-order="2" filter="url(#soft-shadow)">
-            <polygon points="359.4,240 365.625,270 434.375,270 440.6,240" fill="url(#grad-bio)" opacity="1" stroke="#4caf50" stroke-width="0.8"/>
-            <polygon points="359.4,240 365.625,270 434.375,270 440.6,240" fill="url(#pattern-waves)" opacity="0.06"/>
+            <polygon points="362.5,240 371.875,270 428.125,270 437.5,240" fill="url(#grad-bio)" opacity="1" stroke="#4caf50" stroke-width="0.8" stroke-linejoin="miter"/>
+            <polygon points="362.5,240 371.875,270 428.125,270 437.5,240" fill="url(#pattern-waves)" opacity="0.06" stroke="none"/>
             <text x="400" y="257.5" text-anchor="middle" fill="#062e14" font-weight="800">Biosfera</text>
             <!-- icon removed -->
           </g>
 
           <!-- HIDROSFERA: degradado + patrón de olas y borde contrastado -->
           <g class="hotspot hidrosfera" tabindex="0" role="button" aria-label="Abrir Hidrosfera" data-system="hidrosfera" data-name="Hidrosfera" data-order="1" filter="url(#soft-shadow)">
-            <polygon points="357.3,215 359.4,240 440.6,240 442.7,215" fill="url(#grad-hidro)" opacity="1" stroke="#0288d1" stroke-width="0.8"/>
-            <polygon points="357.3,215 359.4,240 440.6,240 442.7,215" fill="url(#pattern-waves)" opacity="0.12"/>
+            <polygon points="354.6875,215 362.5,240 437.5,240 445.3125,215" fill="url(#grad-hidro)" opacity="1" stroke="#0288d1" stroke-width="0.8" stroke-linejoin="miter"/>
+            <polygon points="354.6875,215 362.5,240 437.5,240 445.3125,215" fill="url(#pattern-waves)" opacity="0.12" stroke="none"/>
             <text x="400" y="230" text-anchor="middle" fill="#001e3b" font-weight="800">Hidrosfera</text>
             <!-- icon removed -->
           </g>
 
           <!-- ATMÓSFERA (redondeada con arco) -->
           <g class="hotspot" tabindex="0" role="button" aria-label="Abrir Atmósfera" data-system="atmosfera" data-name="Atmósfera" data-order="0">
-            <path d="M 300,40 A 130,60 0 0 1 500,40 L 442.7,215 L 357.3,215 Z" fill="url(#grad-atmo)" opacity="0.94" stroke="#42a5f5" stroke-width="0.8"></path>
+            <path d="M 300,40 A 130,60 0 0 1 500,40 L 445.3125,215 L 354.6875,215 Z" fill="url(#grad-atmo)" opacity="0.94" stroke="#42a5f5" stroke-width="0.8" stroke-linejoin="miter"></path>
             <text x="400" y="120" text-anchor="middle" fill="#003c6c" font-weight="700">Atmósfera</text>
             <!-- icon removed -->
           </g>
